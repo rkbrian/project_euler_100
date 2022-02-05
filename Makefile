@@ -1,4 +1,5 @@
 # Memo
+# Level: easy
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
