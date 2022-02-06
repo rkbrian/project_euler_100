@@ -6,7 +6,8 @@
  *  for which, a^2 + b^2 = c^2
  *  There exists exactly one Pythagorean triplet for which a + b + c = 1000.
  *  Find the product abc.
- *  Note: I wish I've found a more concise 
+ *  Note: main function shows how I found the three numbers,
+ *  then the abc product.
  * Return: 0 if success, 1 if fail
  */
 int main(void)

@@ -31,6 +31,6 @@ int main(void)
 		if (flag == 0)
 			i++, old_prime = target;
 	}
-	printf("Final ans: %ld\n", target);
+	printf("Final ans: %lu\n", target);
 	return (0);
 }
