@@ -14,5 +14,12 @@
  */
 int main(void)
 {
-	long sing[] = {3, 3, 5, 4, 4, 3, 5, 5, 4, 3}, tens[] = {6, 6, 0};
+	int sings[] = {3, 3, 5, 4, 4, 3, 5, 5, 4, 3};/*1-10*/
+	int teens[] = {6, 6, 8, 8, 7, 7, 9, 8, 8};/*11-19*/
+	int tens[] = {6, 6, 5, 5, 5, 7, 6, 6};/*20, 30, 40... 90*/
+	int hunds[] = {7, 10};/*-hundred, -hundred and-*/
+	int thous[] = 11;/*finish line*/
+	int i = 0, sum = 0;
+
+	/**/
 }
