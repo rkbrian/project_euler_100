@@ -2,6 +2,9 @@
 # Level: easy
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
+# Sometimes I would like to practice C++ a little
+CPPC = g++
+CPPFLAGS = -std=c++11
 
 001:	001.c
 	$(CC) $(CFLAGS) $^ -o $@
@@ -43,22 +46,25 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 	$(CC) $(CFLAGS) $^ -o $@
 020:	020.c
 	$(CC) $(CFLAGS) $^ -o $@
-021:	021.c
-	$(CC) $(CFLAGS) $^ -o $@
-022:	022.c
-	$(CC) $(CFLAGS) $^ -o $@
-023:	023.c
-	$(CC) $(CFLAGS) $^ -o $@
-024:	024.c
-	$(CC) $(CFLAGS) $^ -o $@
-025:	025.c
-	$(CC) $(CFLAGS) $^ -o $@
-026:	026.c
-	$(CC) $(CFLAGS) $^ -o $@
-027:	027.c
-	$(CC) $(CFLAGS) $^ -o $@
-028:	028.c
-	$(CC) $(CFLAGS) $^ -o $@
-029:	029.c
-	$(CC) $(CFLAGS) $^ -o $@
-.PHONY: $(CC) $(CFLAGS) 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020 021 022 023 024 025 026 027 028 029
+021:	021.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+022:	022.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+023:	023.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+024:	024.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+025:	025.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+026:	026.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+027:	027.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+028:	028.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+029:	029.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+030:	030.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+.PHONY: $(CC) $(CFLAGS) $(CPPC) $(CPPFLAGS) 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020
+ 021 022 023 024 025 026 027 028 029 030

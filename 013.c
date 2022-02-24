@@ -11,11 +11,11 @@
  */
 int main(void)
 {
-	FILE *fp = fopen("txt_013.txt", "rb");
+	FILE *fp = fopen("txt_018.txt", "rb");
 	char *lines = NULL, *token = NULL, *lsave = NULL;
 	ssize_t reading;
 	size_t len = 0;
-	long i, j = 0, digi_size = 13, valid_ds = 10, x = 1, arr[digi_size];
+	long i, j = 0, digi_size = 13, valid_ds = 10, x = 1, arr[13];
 
 	if (fp == NULL)
 		exit(EXIT_FAILURE);
