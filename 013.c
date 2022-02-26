@@ -30,6 +30,8 @@ int main(void)
 		}
 	}
 	fclose(fp);
+	if (token)
+		free(token);
 	for (i = 0; i < digi_size; i++)
 		j += arr[i], j *= 10;
 	i = 0;
