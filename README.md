@@ -1,6 +1,6 @@
 # Project Euler 100
 
-<img src="https://www.azquotes.com/picture-quotes/quote-logic-is-the-foundation-of-the-certainty-of-all-the-knowledge-we-acquire-leonhard-euler-71-54-35.jpg" width="700">
+<div align="center"><img src="https://www.azquotes.com/picture-quotes/quote-logic-is-the-foundation-of-the-certainty-of-all-the-knowledge-we-acquire-leonhard-euler-71-54-35.jpg" width="700"></div>
 
 ## Overview
 Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve.\
@@ -21,6 +21,11 @@ All codes in this repository are workable and free of memory leak. The answers w
 3. Compile to create the solution execution file. Command: **make \<ID>**.
 4. Run the file to print answer. Command: **./\<ID>**. Sometimes more arguments are required.
 5. Type the answer in the problem webpage to check.
+
+## Screenshots
+<div align="center"><img src="https://github.com/rkbrian/project_euler_100/blob/main/project_euler_01.jpg" height="500"></div><br>
+<div align="center"><img src="https://github.com/rkbrian/project_euler_100/blob/main/project_euler_001_execute.jpg" height="500"></div><br>
+<div align="center"><img src="https://github.com/rkbrian/project_euler_100/blob/main/project_euler_001_web.jpg" height="600"></div>
 
 ## Current Progress
 18 of 100 questions are solved, no. 19 is on progress.
