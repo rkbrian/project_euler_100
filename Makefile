@@ -1,12 +1,13 @@
 # Memo
-# Level: easy
+# Problem level: easy
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
 # Sometimes I would like to practice C++ a little
 CPPC = g++
 CPPFLAGS = -std=c++11
+# If not noted, all execution commands are: ./<exe file>
 
-001:	001.c
+001:	001.c # exe command: ./001 <number>
 	$(CC) $(CFLAGS) $^ -o $@
 002:	002.c
 	$(CC) $(CFLAGS) $^ -o $@
