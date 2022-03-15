@@ -9,7 +9,9 @@ All codes in this repository are workable and free of memory leak. The answers w
 **Warning**: This repository is a personal challege project, it is for learning purposes and technical communications only. Viewers are not allowed to copy this repository's file contents for their own answers of the Project Euler challenges, which is considered cheating.
 
 ## Project Developer
-**[Brian Kong](https://github.com/rkbrian)**
+**[Brian Kong](https://github.com/rkbrian)** - software engineer, learning to code at Holberton School since Jan, 2021, specialization and passion in Low Level & Algorithms.\
+LinkedIn: https://www.linkedin.com/in/ran-kong/ \
+Email: rkbriankong@gmail.com
 
 ## Challenge links
 [**Introduction**](https://projecteuler.net/about)\
@@ -20,7 +22,7 @@ All codes in this repository are workable and free of memory leak. The answers w
  - WSL
 
 ## How to Use This Repository
-1. Create an account on the Project Euler website for work submission and records.
+1. Create a user account on the Project Euler website for work submission and records.
 2. Go to the chanllenge archives website and pick a problem to solve.
 3. In this repository, make a file with the name of the problem ID number, the problem descriptions and personal notes are documented. Some large inputs are saved in txt files. Compiling methods are stored in *Makefile*.
 4. Compile to create the solution execution file. Command: **make \<ID>**.
@@ -41,4 +43,4 @@ All codes in this repository are workable and free of memory leak. The answers w
    - C++
    - Python
    - Javascript
-3. I plan to solve the problems with skips as few as possible, because in my Project Euler account I can receive a badge for continuous works.
+3. I plan to solve the problems with skips as few as possible, because in my Project Euler user account I can receive badges for solving consecutive problems.
