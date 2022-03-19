@@ -16,20 +16,23 @@ int main(void)
 	/*6th day of 1901 is Sunday*/
 	size_t yrs = 2000 - 1901 + 1;
 	size_t i, j, first_suns = 0, start = 5;
-        size_t arr[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	size_t arr[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 	for (i = 1; i <= yrs; i++)
 	{
 		arr[1] = 28;
-		if (i % 4 == 0)
+		if (i % 4 == 0 && i % 100 > 0)
 			arr[1] = 29;
-                for (j = 0; j < 12; j++)
+		else if (i % 400 == 0)
+			arr[1] = 29;
+		for (j = 0; j < 12; j++)
 		{
 			if (start == 0)
 				first_suns++;
 			start = ((arr[j] % 7) + start) % 7;
 		}
 	}
+	first_suns++; /*adding start point Sunday*/
 	printf("Final ans: %lu\n", first_suns);
 	return (0);
 }
