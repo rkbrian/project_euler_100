@@ -21,10 +21,10 @@ int main()
 
 	while (next_permutation(thisstr.begin(), thisstr.end()))
 	{
-                i++;
+		i++;
 		if (i == high_lim)
 			break;
 	}
-        cout << "final ans: " << thisstr << endl;
+	cout << "final ans: " << thisstr << endl;
 	return 0;
 }
