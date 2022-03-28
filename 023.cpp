@@ -5,6 +5,24 @@
 
 using namespace std;
 
+class Node {
+	public:
+		size_t abundant;
+		Node *next; // pointer to next node
+};
+
+Node *createnode(size_t val)
+{
+	Node *nodey;
+	size_t i;
+
+	nodey = new Node();
+	if (!nodey)
+		return NULL;
+	nodey->abundant = val, nodey->next = NULL;
+	return nodey;
+}
+
 /**
  * the_d_function - function to sum up all divisors of a integer x
  *  (divisible to these divisors), all divisors are less than x.
@@ -20,7 +38,7 @@ size_t the_d_function(size_t x)
 		if (x % i == 0)
 		{
 			y += i, mid_point = x / i;
-			if (mid_point != x)
+			if (mid_point != x && mid_point != i)
 				y += mid_point;
 		}
 		i++;
@@ -45,15 +63,46 @@ size_t the_d_function(size_t x)
  *  two abundant numbers is less than this limit.
  *  Find the sum of all the positive integers which cannot be written
  *  as the sum of two abundant numbers.
+ * Notes: slow, 2min 50s
  * Return: 0 if success, 1 if fail
  */
 int main()
 {
-	size_t reg_sum, real_sum = 0, low_lim = 24, high_lim = 28123, tmp;
-        size_t leap = 12; // the smallest abundant number as leap of iteration
+	long reg_sum, ab_sum = 0, low_lim = 24, high_lim = 28123, a, b, i = 0;
+	Node *tmp, *curr = NULL, *head = NULL;
 
-        reg_sum = (low_lim + high_lim) * (high_lim - low_lim + 1) / 2;
-        reg_sum -= (low_lim + (size_t)(high_lim / leap) * leap) * (1 + (high_lim - low_lim) / leap) / 2;
-        cout << reg_sum << " and " << real_sum << endl;
-        return 0;
+	reg_sum = (1 + high_lim) * (high_lim) / 2;
+	cout << "Regular sum from 24 to 28123 is: " << reg_sum << endl;
+	for (a = 12; a <= high_lim; a++) // list of abundant numbers
+	{
+		b = the_d_function(a);
+		if (b > a)
+			tmp = createnode(a), i++;
+		if (b > a && !head)
+			head = tmp, curr = head;
+		else if (b > a)
+			curr->next = tmp, curr = curr->next;
+	}
+	curr->next = NULL, curr = head, cout << "abundant number count: " << i << endl;
+	for (a = low_lim; a <= high_lim; a++) // sum of all numbers that can be written as sum of 2 ab nums
+	{
+		curr = head;
+		while (curr && curr->abundant < a)
+		{
+			i = a - curr->abundant, b = the_d_function(i);
+			if (b > i)
+			{
+				ab_sum += a;
+				break;
+			}
+			curr = curr->next;
+		}
+		b = 0, i = 0;
+		if (a % 500 == 0)
+			cout << a << endl;
+	}
+	i = reg_sum - ab_sum, cout << "final ans: " << i << endl, curr = head;
+	while (curr)
+		tmp = curr, curr = curr->next, free(tmp);
+	return 0;
 }

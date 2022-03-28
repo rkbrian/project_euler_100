@@ -93,7 +93,10 @@ int main()
 	{
 		tmp = NULL, curr = heads[j];
 		while (curr)
-			tmp = curr, sum += nth * tmp->val, nth++, curr = curr->next, free(tmp->st), free(tmp);
+		{
+			tmp = curr, sum += nth * tmp->val, nth++, curr = curr->next;
+			tmp->next = NULL, free(tmp->st), free(tmp);
+		}
 	}
 	fclose(fp), cout << i << " names" << endl;
 	cout << "final ans: " << sum << endl;
