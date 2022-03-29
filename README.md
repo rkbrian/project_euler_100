@@ -35,12 +35,12 @@ Email: rkbriankong@gmail.com
 <div align="center"><img src="https://github.com/rkbrian/project_euler_100/blob/main/project_euler_001_web.jpg" height="600"></div>
 
 ## Current Progress
-24 of 100 problems are solved, last solved problem is #24.
+25 of 100 problems are solved, last solved problem is #25.
 
 ## Development Goals
 1. For self training of coding, I plan to solve all problems with different languages, including:
    - C ---------- 20 problems solved
-   - C++ --------  4 problems solved, ongoing
+   - C++ --------  5 problems solved, ongoing
    - Python ----- not started
    - Javascript -- not started
 2. I plan to solve the problems with skips as few as possible, because in my Project Euler user account I can receive badges for solving consecutive problems.
