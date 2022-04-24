@@ -35,7 +35,7 @@ Email: rkbriankong@gmail.com
 <div align="center"><img src="https://github.com/rkbrian/project_euler_100/blob/main/project_euler_001_web.jpg" height="600"></div>
 
 ## Current Progress
-25 of 100 problems are solved, last solved problem is #25.
+25 of 100 problems are solved, the last solved problem is #25.
 
 ## Development Goals
 1. For self training of coding, I plan to solve all problems with different languages, including:
