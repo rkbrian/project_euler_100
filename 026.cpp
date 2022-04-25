@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include <algorithm>
 #include <atomic>
 
 using namespace std;
@@ -27,9 +26,8 @@ using namespace std;
 int main()
 {
         long divisor = 1, dividend = 2, remainder = 0, d_limit = 1000, longest_d = 0, d = 0;
-        map <int, int> digimap; // collection of (remainder, iterator), i increment from 0
+        map <int, int> digimap;
         vector<char> recur_cyc;
-        // vector<char> targ;
 
         while (dividend < d_limit)
         {
@@ -48,17 +46,16 @@ int main()
                                 }
                                 break;
                         }
-                        else
+                        else // when the remainder is new to the remainder map
                         {
-                                digimap[remainder] = recur_cyc.size();
-                                remainder *= 10;
-                                recur_cyc.push_back((remainder / dividend) + '0');
-                                remainder = remainder % dividend;
+                                digimap[remainder] = recur_cyc.size(); // new iterator
+                                remainder *= 10; // could be less than the dividend
+                                recur_cyc.push_back((remainder / dividend) + '0'); // int to char, 1 digit saved
+                                remainder = remainder % dividend; // next remainder for the loop going
                         }
                 }
                 dividend++, digimap.clear(), recur_cyc.clear();
         }
-        // cout << "the longest recuring cycle: " << string(targ.begin(), targ.end()) << endl;
 	cout << "final ans: " << d << endl;
         return 0;
 }
