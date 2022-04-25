@@ -67,5 +67,26 @@ CPPFLAGS = -std=c++11
 	$(CPPC) $(CPPFLAGS) $^ -o $@
 030:	030.cpp
 	$(CPPC) $(CPPFLAGS) $^ -o $@
+031:	031.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+032:	032.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+033:	033.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+034:	034.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+035:	035.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+036:	036.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+037:	037.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+038:	038.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+039:	039.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+040:	040.cpp
+	$(CPPC) $(CPPFLAGS) $^ -o $@
+
 .PHONY: $(CC) $(CFLAGS) $(CPPC) $(CPPFLAGS) 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020\
- 021 022 023 024 025 026 027 028 029 030
+ 021 022 023 024 025 026 027 028 029 030 031 032 033 034 035 036 037 038 039 040
