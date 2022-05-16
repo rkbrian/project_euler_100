@@ -3,6 +3,7 @@
                 "stdio.h": "c",
                 "ostream": "cpp",
                 "xstring": "cpp",
-                "map": "cpp"
+                "map": "cpp",
+                "atomic": "cpp"
         }
 }
