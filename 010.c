@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <math.h>
 
 /**
  * main - The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
  *  Find the sum of all the primes below two million.
- *  Note: almost 12 min to solve! O(n^2), I wish someone can teach me
- *  a solution that would be faster than this!
  * Return: 0 if success, 1 if fail
  */
 int main(void)
@@ -21,9 +20,9 @@ int main(void)
 		target += 2, flag = 0;
 		if (target > (ULONG_MAX >> 1))
 			break;
-		for (j = 3; j <= old_prime; j += 2)
+		for (j = 3; j <= (unsigned long)(sqrt(target)) + 1; j += 2)
 		{
-			if (target % j == 0)
+			if (target % j == 0 && target != j)
 			{
 				flag++;
 				break;

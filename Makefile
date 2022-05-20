@@ -26,7 +26,7 @@ CPPFLAGS = -std=c++11
 009:	009.c
 	$(CC) $(CFLAGS) $^ -o $@
 010:	010.c
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ -lm
 011:	011.c
 	$(CC) $(CFLAGS) $^ -o $@
 012:	012.c
