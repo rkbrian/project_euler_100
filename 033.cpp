@@ -60,6 +60,6 @@ int main()
                 }
                 a = 1, b = 2, digit++;
         }
-        cout << lowest_deno(pro_a, pro_b) << endl;
+        cout << "final ans: " << lowest_deno(pro_a, pro_b) << endl;
         return 0;
 }
