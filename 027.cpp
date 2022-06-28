@@ -1,22 +1,31 @@
 #include <iostream>
+#include <math.h>
 #include <atomic>
 
 using namespace std;
 
 /**
- * main - find whether a given number is a prime number or not
+ * prime_checker - find whether a given number is a prime number or not
  * @num: the given number
  * Return: 0 if it is a prime number, 1 if not
  */
 int prime_checker(int num)
 {
-        int factory = 2;
+        int factory = 3;
 
-	while (num % factory > 0)
-		factory++;
-	if (num == factory)
+        if (num == 2)
                 return 0;
-	return 1;
+        if (num % 2 == 0)
+                return 1;
+	while (factory < sqrt(num))
+        {
+                if (num % factory == 0)
+                        return 1;
+		factory += 2;
+        }
+        if (factory * factory == num)
+                return 1;
+	return 0;
 }
 
 /**
