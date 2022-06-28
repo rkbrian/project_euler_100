@@ -5,9 +5,9 @@
 using namespace std;
 
 /**
- * prime_checker - find whether a given number is a prime number or not
+ * int_palindrome_checker - check whether a given number is a palindrome or not
  * @num: the given number
- * Return: 0 if it is a prime number, 1 if not
+ * Return: 0 if it is a palindrome number, 1 if not
  */
 int int_palindrome_checker(int num)
 {
