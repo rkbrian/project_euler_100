@@ -1,9 +1,39 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <string>
 #include <atomic>
 
 using namespace std;
+
+int first_digit(int num)
+{
+        int digit = 0;
+
+        while (num)
+                digit = num % 10, num = num / 10;
+        return digit;
+}
+
+/**
+ * unique_int - function to define if all digits are unique in a number
+ * @num: number to be checked
+ * Return: 0 if all digits are unique, 1 otherwise
+ */
+int unique_int(int num)
+{
+        vector<int> hashTable = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int i = 0, digit = 0;
+
+        while (num)
+                digit = num % 10, hashTable[digit]++, num = num / 10;
+        for (i = 0; i < 10; i++)
+        {
+                if (hashTable[i] > 1) // each digit must be unique or not exist in the number
+                        return 1;
+        }
+        return 0;
+}
 
 /**
  * main - Take the number 192 and multiply it by each of 1, 2, and 3:
@@ -21,5 +51,38 @@ using namespace std;
  */
 int main()
 {
+        int maxBase = 9876, tmp, nextBase, currBase, maxPandigital = 0, i;
+        vector<int> hashTable = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        string concat = "";
+
+        currBase = maxBase, nextBase = maxBase;
+        while (first_digit(currBase) == 9 && currBase > 8)
+        {
+                tmp = currBase, concat = "";
+                if (unique_int(currBase) == 0)
+                {
+                        while (concat.length() < 9)
+                                concat += to_string(tmp), tmp += currBase;
+                        hashTable = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                        if (concat.length() == 9)
+                        {
+                                for (i = 0; i < 10; i++)
+                                        hashTable[concat[i] - '0']++;
+                                for (i = 0; i < 10; i++)
+                                {
+                                        if (hashTable[i] != 1)
+                                                break;
+                                }
+                                if (i == 10)
+                                        cout << "Pandigital string that starts with 9: " << concat << " at base number " << currBase << endl;
+                                if (i == 10 && stoi(concat) > maxPandigital)
+                                        maxPandigital = stoi(concat);
+                        }
+                }
+                currBase--;
+                if (first_digit(currBase) < 9)
+                        nextBase /= 10, currBase = nextBase;
+        }
+        cout << "final ans: " << maxPandigital << endl;
         return 0;
 }
