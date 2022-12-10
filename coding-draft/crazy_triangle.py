@@ -20,24 +20,20 @@ def superTriangle(row):
         if row is None or len(row) == 0:
                 return ""
         elif len(row) == 1:
-               return row[0]
+                return row[0]
         stry = "RGB"
         dicty = {'R':0, 'G':1, 'B':2}
         goal = 0
-        pascal = []
         k = 1
         size = int(len(row))
-        switcher = -1
-        for i in range(size):
-                pascal.append(k)
-                k = k * (size - 1 - i)
-                k = k // (i + 1)
         if size % 2 == 0:
-                switcher = -1
+                for i in range(size):
+                    goal -= k * dicty[row[i]]
+                    k = k * (size - 1 - i) // (i + 1)
         else:
-                switcher = 1
-        for i in range(size):
-                goal += switcher * pascal[i] * dicty[row[i]]
+                for i in range(size):
+                    goal += k * dicty[row[i]]
+                    k = k * (size - 1 - i) // (i + 1)
         return stry[int(goal) % 3]
 
 if __name__ == "__main__":
