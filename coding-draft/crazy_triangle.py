@@ -27,13 +27,15 @@ def superTriangle(row):
         k = 1
         size = int(len(row))
         if size % 2 == 0:
-                for i in range(size):
-                    goal -= k * dicty[row[i]]
-                    k = k * (size - 1 - i) // (i + 1)
+                for i in range(int(size / 2)):
+                        goal -= k * (dicty[row[i]] + dicty[row[size - 1 - i]])
+                        k = k * (size - 1 - i) // (i + 1)
         else:
-                for i in range(size):
-                    goal += k * dicty[row[i]]
-                    k = k * (size - 1 - i) // (i + 1)
+                for i in range(int(size / 2) + 1):
+                        goal += k * dicty[row[i]]
+                        if i < int(size / 2):
+                                goal += k * dicty[row[size - 1 - i]]
+                        k = k * (size - 1 - i) // (i + 1)
         return stry[int(goal) % 3]
 
 if __name__ == "__main__":
