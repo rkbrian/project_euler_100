@@ -1,3 +1,5 @@
+import time
+
 def triangle(row):
         if row is None or len(row) == 0:
                 return ""
@@ -52,5 +54,11 @@ if __name__ == "__main__":
                 print("Pascal coefficient: " + superTriangle(i[0]))
                 print("Real value:         " + i[1])
         print('================')
-        print("Super long: " + superTriangle(longStr))
-        print("Super long: " + superTriangle(longStrt))
+        print("Super long, super triangle: " + superTriangle(longStr))
+        print("Super long, super triangle: " + superTriangle(longStrt))
+        #st = time.time()
+        #print("Super long, slow triangle: " + triangle(longStr))
+        #et = time.time()
+        #elapsed_time = et - st
+        #print('Execution time:', elapsed_time, 'seconds')
+        # slow takes 40 min, fast takes 2-3 sec.
