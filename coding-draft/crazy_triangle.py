@@ -5,16 +5,14 @@ def triangle(row):
                 return row[0]
         stry = "RGB"
         dicty = {'R':0, 'G':1, 'B':2}
-        temp = []
-        rowCopy = []
-        for i in range(len(row)):
-                rowCopy.append(dicty[row[i]])
+        temp = ""
+        rowCopy = row
         while len(rowCopy) > 1:
                 for i in range(len(rowCopy) - 1):
-                        temp.append((6 - rowCopy[i] - rowCopy[i + 1]) % 3)
+                        temp += stry[(6 - dicty[rowCopy[i]] - dicty[rowCopy[i + 1]]) % 3]
                 rowCopy = temp
-                temp = []
-        return stry[rowCopy[0]]
+                temp = ""
+        return rowCopy[0]
 
 def superTriangle(row):
         if row is None or len(row) == 0:
