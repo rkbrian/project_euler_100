@@ -18,17 +18,16 @@ I wanted to add controls with inputs for the following parameters:
 1. Selectable difficulty (4 choices)
 2. Selectable preference of the given number layout
     (no preference / random, symmetrical layout, axial layout)
-    (for expert level difficulty, only random layout is available)
 3. Expert level difficulty: the clue numbers are not all 9 types, it is missing one type
 4. Generating a solution / answer grid is optional, before generating the puzzle
     (answer would be shown for 10 seconds, then turn into puzzle grid)
 5. Python-Turtle window drawing the grid and the numbers
 
 -- Outcome --
-Total hours: 8
-I'm very satisfied! Score 10/10!
-Issues: needs a method to download the puzzle or the answer grid, right now the user
-    has to take screenshots.
+Total hours of developing: 10
+I'm very satisfied! Score 10/10 to myself!
+Issues: needs an automatic method to save the puzzle or the answer grid images, right now
+    the user has to take screenshots. Pylance hates Image or Imagegrab imports
 """
 import turtle
 import datetime
@@ -63,11 +62,7 @@ while (exitCode):
     diffNum = input('Select diffculty: 1-Easy, 2-Medium, 3-Hard, 4-Expert\n')
     if (inputValidator(diffNum) in (item.value for item in Difficulty)):
         while (exitCode):
-            if (int(diffNum) == Difficulty.EXPERT.value):
-                print('*Expert level is only available in random layout.')
-                preferenceNum = '1'
-            else:
-                preferenceNum = input('Select layout preference: 1-no preference, 2-symmetrical, 3-axial\n')
+            preferenceNum = input('Select layout preference: 1-no preference, 2-symmetrical, 3-axial\n')
             if (inputValidator(preferenceNum) in (item.value for item in Preference)):
                 while (exitCode):
                     answerBool = input('Do you want to have an answer grid? (Y/N)\n')
@@ -170,7 +165,7 @@ numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 def fillGrid(grid):
     global counter
     # Find next empty cell
-    for i in range(0,81):
+    for i in range(0, 81):
         row = i // 9
         col = i % 9
         if grid[row][col] == 0:
@@ -194,7 +189,7 @@ def fillGrid(grid):
             break
     grid[row][col] = 0
 
-"""Generate a Fully Solved Grid. If you need a screenshot for saving the answer, uncomment sleep()"""
+"""Generate a Fully Solved Grid."""
 fillGrid(grid)
 drawGrid(grid)
 myPen.getscreen().update()
@@ -215,6 +210,10 @@ if (int(diffNum) == Difficulty.EXPERT.value):
     for i in range(9):
         for j in range(9):
             if (grid[i][j] == extinctionNum):
+                if (prefNum == Preference.SYMMETRICAL.value and j != 4):
+                    grid[i][8 - j] = 0
+                elif (prefNum == Preference.AXIAL.value and not(i == 4 and j == 4)):
+                    grid[8 - i][8 - j] = 0
                 grid[i][j] = 0
 while attempts > 0:
     # Select a random cell that is not already empty
@@ -226,12 +225,14 @@ while attempts > 0:
     # Remember its cell value in case we need to put it back
     backup = grid[row][col]
     grid[row][col] = 0
-    if ((prefNum == Preference.SYMMETRICAL.value and col != 4) or (prefNum == Preference.AXIAL.value and not(row == 4 and col == 4))):
-        twinrow = row
-        if (prefNum == Preference.AXIAL.value):
-            twinrow = 8 - row
-        twincol = 8 - col
-        twinbackup = grid[twinrow][twincol]
+    twinrow = row
+    if (prefNum == Preference.AXIAL.value and not(row == 4 and col == 4)):
+        twinrow = 8 - row
+    twincol = 8 - col
+    twinbackup = grid[twinrow][twincol]
+    if (prefNum == Preference.SYMMETRICAL.value and col != 4):
+        grid[twinrow][twincol] = 0
+    elif (prefNum == Preference.AXIAL.value and not(row == 4 and col == 4)):
         grid[twinrow][twincol] = 0
     # Take a full copy of the grid
     copyGrid = []
@@ -245,7 +246,9 @@ while attempts > 0:
     # If the number of solution is different from 1 then we need to cancel the change by putting the value we took away back in the grid
     if counter != 1:
         grid[row][col] = backup
-        if ((prefNum == Preference.SYMMETRICAL.value and row != 4) or (prefNum == Preference.AXIAL.value and not(row == 4 and col == 4))):
+        if (prefNum == Preference.SYMMETRICAL.value and col != 4):
+            grid[twinrow][twincol] = twinbackup
+        elif (prefNum == Preference.AXIAL.value and not(row == 4 and col == 4)):
             grid[twinrow][twincol] = twinbackup
         # We could stop here, but we can also have another attempt with a different cell just to try to remove more numbers
         attempts -= 1
